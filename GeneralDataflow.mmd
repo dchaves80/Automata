@@ -9,7 +9,8 @@ sequenceDiagram
   client->>client: process
 %% 1
   client-->>client:Open thead
-  client->>server:Send http request to controller
+  create participant thread
+  thread->>server:Send http request to controller
   server->server:Process request
   server->>httpsql:Send request qith sql sentence
   httpsql->httpsql:Convert request into sql sentence
@@ -20,7 +21,8 @@ sequenceDiagram
   httpsql->>server:Returns query result (json)
   server->server:Process Data
   server->client:Returns response
-  client->client:Store response in message queue
+  thread->client:Store response in message queue
+  destroy participant thread
 
 %% 4
   loop Each message in message queue of each gameobject
