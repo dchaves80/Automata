@@ -1,0 +1,14 @@
+#Unity Project (Game)
+/Game/automata/[Ll]ibrary/
+/Game/automata/serSettings/
+/Game/automata/[Tt]emp/
+/Game/automata/[Oo]bj/
+/Game/automata/[Bb]uild/
+/Game/automata/[Bb]uilds/
+/Game/automata/[Ll]ogs/
+/Game/automata/[Mm]emoryCaptures/
+/Game/automata/.vs/
+/Server/AutomataServer/AutomataServer/[Bb]in/
+/Server/AutomataServer/AutomataServer/[Oo]bj/
+/Server/SQLToHttp/SQLToHttp/[Bb]in/
+/Server/SQLToHttp/SQLToHttp/[Oo]bj/

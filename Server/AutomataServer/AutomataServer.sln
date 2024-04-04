@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34607.119
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomataServer", "AutomataServer\AutomataServer.csproj", "{3EE123BA-EBFD-4984-B4C6-15B090840D5D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3EE123BA-EBFD-4984-B4C6-15B090840D5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EE123BA-EBFD-4984-B4C6-15B090840D5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EE123BA-EBFD-4984-B4C6-15B090840D5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EE123BA-EBFD-4984-B4C6-15B090840D5D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CD2211BE-194E-40A3-88CD-F36BB0D5ADF2}
+	EndGlobalSection
+EndGlobal
