@@ -18,7 +18,7 @@ sequenceDiagram
   server->>httpsql:Send request qith sql sentence
   httpsql->httpsql:Convert request into sql sentence
   httpsql->>database:Send Query
-  database->>database:Process Query
+  database->database:Process Query
 %% 3
   database->>httpsql:Returns query result
   httpsql->>server:Returns query result (json)
