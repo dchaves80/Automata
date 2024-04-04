@@ -28,8 +28,9 @@ sequenceDiagram
 
 %% 4
   loop Each message in message queue of each gameobject
-  game->game:Take first message from queue
-  game->game:Process Message
-  game->game:Do stuff
-  game->game:Deletes first message from queue
+    game->game:Take first message from queue
+    game->game:Process Message
+    game->game:Do stuff
+    game->game:Deletes first message from queue
+  end
 ```
