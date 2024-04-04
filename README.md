@@ -19,10 +19,17 @@ sequenceDiagram
   httpsql->httpsql:Convert request into sql sentence
   httpsql->>database:Send Query
   database->>database:Process Query
+%% 3
   database->>httpsql:Returns query result
-  httpsql->>server:Returns query result
+  httpsql->>server:Returns query result (json)
   server->>server:Process Data
+  server->game:Returns response
+  game->game:Store response in message queue
 
-
-
+%% 4
+  loop Each message in message queue of each gameobject
+  game->game:Take first message from queue
+  game->game:Process Message
+  game->game:Do stuff
+  game->game:Deletes first message from queue
 ```
