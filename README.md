@@ -22,7 +22,7 @@ sequenceDiagram
 %% 3
   database->>httpsql:Returns query result
   httpsql->>server:Returns query result (json)
-  server->>server:Process Data
+  server->server:Process Data
   server->client:Returns response
   client->client:Store response in message queue
 
