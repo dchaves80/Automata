@@ -30,5 +30,6 @@ sequenceDiagram
     client->client:Take first message from queue
     client->client:Process Message
     client->client:Do stuff
+    client->user:Send visual updates
     client->client:Deletes first message from queue
   end
