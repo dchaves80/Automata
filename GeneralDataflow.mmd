@@ -24,6 +24,7 @@ sequenceDiagram
   thread->client:Store response in message queue
   client->thread:Destroy thread
   destroy thread
+  thread->thread:destroyed
   
 %% 4
   loop Each message in message queue of each gameobject
