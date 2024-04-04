@@ -1,5 +1,5 @@
 #Unity Project (Game)
-/Game/automata/Library/
+/Game/automata/[Ll]ibrary/
 /Game/automata/serSettings/
 /Game/automata/[Tt]emp/
 /Game/automata/[Oo]bj/
@@ -8,7 +8,11 @@
 /Game/automata/[Ll]ogs/
 /Game/automata/[Mm]emoryCaptures/
 /Game/automata/.vs/
+
+#Server Project
 /Server/AutomataServer/AutomataServer/[Bb]in/
 /Server/AutomataServer/AutomataServer/[Oo]bj/
+
+#Server HttpToSql Project
 /Server/SQLToHttp/SQLToHttp/[Bb]in/
 /Server/SQLToHttp/SQLToHttp/[Oo]bj/
