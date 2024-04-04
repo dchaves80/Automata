@@ -1,16 +1,15 @@
 sequenceDiagram
-  actor user
-  participant client
-  participant server
-  participant httpsql
-  participant database
+  actor user as User
+  participant client as Game
+  participant server as Server API
+  participant httpsql as HTTPtoSQL
+  participant database as Database SQL SERVER
 %% 1
   user->>client: Do Action
   client->>client: process
 %% 1
-  create participant thread
-  client-->>thread:Open thread
   create participant thread as THREAD
+  client-->>thread:Open thread
   thread->>server:Send http request to controller
   server->server:Process request
   server->>httpsql:Send request qith sql sentence
