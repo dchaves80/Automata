@@ -20,10 +20,10 @@ sequenceDiagram
   database->>httpsql:Returns query result
   httpsql->>server:Returns query result (json)
   server->server:Process Data
-  server->client:Returns response
-  thread->client:Store response in message queue
+  server->>client:Returns response
+  thread->>client:Store response in message queue
   destroy thread
-  client->thread:Destroy thread
+  client->>thread:Destroy thread
   
 %% 4
   loop Each message in message queue of each gameobject
