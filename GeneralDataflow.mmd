@@ -23,8 +23,9 @@ sequenceDiagram
   server->server:Process Data
   server->client:Returns response
   thread->client:Store response in message queue
-  destroy thread
   client->thread:Destroy thread
+  destroy thread
+  
 %% 4
   loop Each message in message queue of each gameobject
     client->client:Take first message from queue
