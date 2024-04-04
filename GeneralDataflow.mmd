@@ -22,7 +22,7 @@ sequenceDiagram
   server->server:Process Data
   server->client:Returns response
   thread->client:Store response in message queue
-  destroy participant thread
+  destroy thread
 
 %% 4
   loop Each message in message queue of each gameobject
