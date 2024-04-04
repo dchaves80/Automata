@@ -1,0 +1,6 @@
+@AutomataServer_HostAddress = http://localhost:5207
+
+GET {{AutomataServer_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
