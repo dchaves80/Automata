@@ -19,6 +19,10 @@ sequenceDiagram
   httpsql->httpsql:Convert request into sql sentence
   httpsql->>database:Send Query
   database->>database:Process Query
-  
+  database->>httpsql:Returns query result
+  httpsql->>server:Returns query result
+  server->>server:Process Data
+
+
 
 ```
