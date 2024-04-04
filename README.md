@@ -9,7 +9,7 @@ sequenceDiagram
   participant httpsql
   participant database
 %% 1
-  user->client: Do Action
+  user->>client: Do Action
   client->>client: process
 %% 1
   client-->>client:Open thead
