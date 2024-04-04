@@ -23,14 +23,14 @@ sequenceDiagram
   database->>httpsql:Returns query result
   httpsql->>server:Returns query result (json)
   server->>server:Process Data
-  server->game:Returns response
-  game->game:Store response in message queue
+  server->client:Returns response
+  client->client:Store response in message queue
 
 %% 4
   loop Each message in message queue of each gameobject
-    game->game:Take first message from queue
-    game->game:Process Message
-    game->game:Do stuff
-    game->game:Deletes first message from queue
+    client->client:Take first message from queue
+    client->client:Process Message
+    client->client:Do stuff
+    client->client:Deletes first message from queue
   end
 ```
