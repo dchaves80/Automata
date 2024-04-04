@@ -8,8 +8,8 @@ sequenceDiagram
   user->>client: Do Action
   client->>client: process
 %% 1
-  client-->>client:Open thead
-  create participant thread
+  client-->>client:Open thread
+  create participant thread as THREAD
   thread->>server:Send http request to controller
   server->server:Process request
   server->>httpsql:Send request qith sql sentence
@@ -23,7 +23,6 @@ sequenceDiagram
   server->client:Returns response
   thread->client:Store response in message queue
   destroy thread
-
 %% 4
   loop Each message in message queue of each gameobject
     client->client:Take first message from queue
