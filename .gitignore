@@ -8,6 +8,7 @@
 /Game/automata/[Ll]ogs/
 /Game/automata/[Mm]emoryCaptures/
 /Game/automata/.vs/
+/Game/automata/[Rr]elease/
 
 #Server Project
 /Server/AutomataServer/AutomataServer/[Bb]in/
