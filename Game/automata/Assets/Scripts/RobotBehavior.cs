@@ -2,9 +2,9 @@ using Assets.Scripts;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using Unity.VisualScripting;
-using UnityEditor.SearchService;
+using System.ComponentModel;
+
+
 using UnityEngine;
 
 public class RobotBehavior : MonoBehaviour
@@ -24,6 +24,7 @@ public class RobotBehavior : MonoBehaviour
     public GameObject menuEntity;
     public bool menuOpened = false;
     public int orientation = 1;
+
     public bool MouseOver = false;
     public bool locked = false;
     public string program;
@@ -31,6 +32,18 @@ public class RobotBehavior : MonoBehaviour
     public float TurnSpeed;
     public GameObject HoldItem;
     public Animator animator;
+
+    //Control de Flujos
+    [Range(1,2)]
+    [DefaultValue(2)]
+    public int conditionalVar;
+    [Range(0,999)]
+    public int acc;
+    [Range(0,999)]
+    public int bak;
+    
+
+    
 
     void Start()
     {
@@ -49,7 +62,7 @@ public class RobotBehavior : MonoBehaviour
         */
 
         Scenario = GameObject.Find("ScenarioRender").GetComponent<ScenarioRenderer>();
-        
+
 
     }
 
@@ -74,37 +87,69 @@ public class RobotBehavior : MonoBehaviour
 
             if (currentOrder.order == RobotOrder.orderType.nullOrder)
             {
-                if (orderIndex == orders.Count)
+                if (orderIndex >= orders.Count)
                 {
                     power = false;
                     orderIndex = 0;
-                    currentOrder = new RobotOrder() { order = RobotOrder.orderType.nullOrder };
+                    currentOrder = new RobotOrder() { order = RobotOrder.orderType.nullOrder, conditional = 0};
                 }
                 else
                 {
                     if (orders.Count > 0)
                     {
-                        currentOrder = orders[orderIndex];
+                        currentOrder = new RobotOrder(orders[orderIndex]);
                     }
                 }
             }
+
+
+
+            
+
+            bool exec = false;
+            
             switch (currentOrder.order)
             {
-                case RobotOrder.orderType.begin: begin(); break;
-                case RobotOrder.orderType.forward: move(); break;
-                case RobotOrder.orderType.backward: move(); break;
-                case RobotOrder.orderType.turnleft: turn(); break;
-                case RobotOrder.orderType.turnright: turn(); break;
-                case RobotOrder.orderType.grab: Grab(); break;
-                case RobotOrder.orderType.drop: Drop(); break;
-                case RobotOrder.orderType.waititem: WaitItem(); break;
-                case RobotOrder.orderType.poweroff: PowerOff();break;
+                case RobotOrder.orderType.begin:
+                    exec = false;
+                    if (currentOrder.conditional == 0){exec = true;}else{exec = (conditionalVar == currentOrder.conditional);}if (exec==true){begin();
+            } else { NextOrder(); };
+            break;
+                case RobotOrder.orderType.forward:
+                    exec = false;
+                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }if (exec == true) {move(); } else { NextOrder(); }; break;
+                case RobotOrder.orderType.backward:
+                    exec = false;
+                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }if (exec == true) {move(); } else { NextOrder(); }; break;
+                case RobotOrder.orderType.turnleft:
+                    exec = false;
+                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }if (exec == true) {turn(); } else { NextOrder(); }; break;
+                case RobotOrder.orderType.turnright:
+                    exec = false;
+                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }if (exec == true) {turn(); } else { NextOrder(); }; break;
+                case RobotOrder.orderType.grab:
+                    exec = false;
+                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }if (exec == true) {Grab(); } else { NextOrder(); }; break;
+                case RobotOrder.orderType.drop:
+                    exec = false; 
+                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }if (exec == true) {Drop(); } else { NextOrder(); }; break;
+                case RobotOrder.orderType.waititem:
+                    exec = false;
+                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }if (exec == true) {WaitItem(); } else { NextOrder(); }; break;
+                case RobotOrder.orderType.poweroff:
+                    exec = false;
+                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }if (exec == true) {PowerOff(); } else { NextOrder(); }; break;
                 case RobotOrder.orderType.poweron: PowerOn(); break;
 
             }
         }
     }
 
+    private void NextOrder() 
+    {
+        currentOrder = new RobotOrder();
+        orderIndex++;
+    }
     
 
     private void CheckRightClick()
@@ -147,14 +192,14 @@ public class RobotBehavior : MonoBehaviour
         orderIndex = 0;
         if (orders.Count > 0)
         {
-            currentOrder = orders[0];
+            currentOrder = new  RobotOrder(orders[0]);
         }
         else 
         {
             powerOff = false;
             power = false;
             orderIndex = 0;
-            currentOrder = new RobotOrder() { order = RobotOrder.orderType.nullOrder };
+            currentOrder = new RobotOrder() { order = RobotOrder.orderType.nullOrder, conditional=0 };
         }
 
     }
@@ -297,9 +342,10 @@ public class RobotBehavior : MonoBehaviour
 
     private void begin()
     {
+    
         orderProgression = 0;
         orderIndex = 0;
-        currentOrder = orders[0];
+        currentOrder = new RobotOrder(orders[0]);
        
     }
 

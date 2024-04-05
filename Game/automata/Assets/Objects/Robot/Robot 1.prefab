@@ -624,11 +624,12 @@ MonoBehaviour:
   orderIndex: 0
   currentOrder:
     order: 0
+    conditional: 0
   orderProgression: 0
   power: 0
   powerOff: 0
-  X: 1
-  Y: 1
+  X: 0
+  Y: 0
   Scenario: {fileID: 0}
   menuPrefab: {fileID: 1691427286172480994, guid: 3054d7c8a4f67b34eb5129eb076c45e4, type: 3}
   menuEntity: {fileID: 0}
@@ -637,10 +638,11 @@ MonoBehaviour:
   MouseOver: 0
   locked: 0
   program: 
-  MoveSpeed: 0.1
-  TurnSpeed: 3
+  MoveSpeed: 0
+  TurnSpeed: 0
   HoldItem: {fileID: 0}
-  animator: {fileID: 3513650137517758649}
+  animator: {fileID: 0}
+  conditionalVar: 0
 --- !u!61 &474175986884558025
 BoxCollider2D:
   m_ObjectHideFlags: 0

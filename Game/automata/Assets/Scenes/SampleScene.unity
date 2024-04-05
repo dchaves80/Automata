@@ -1615,16 +1615,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 369452667601952728, guid: 81fd45f7340e118418816e541504ed19, type: 3}
-      propertyPath: Scenario
+      propertyPath: X
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 369452667601952728, guid: 81fd45f7340e118418816e541504ed19, type: 3}
+      propertyPath: Y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 369452667601952728, guid: 81fd45f7340e118418816e541504ed19, type: 3}
+      propertyPath: animator
       value: 
-      objectReference: {fileID: 1387721233}
+      objectReference: {fileID: 0}
     - target: {fileID: 369452667601952728, guid: 81fd45f7340e118418816e541504ed19, type: 3}
       propertyPath: MoveSpeed
-      value: 0.05
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 369452667601952728, guid: 81fd45f7340e118418816e541504ed19, type: 3}
       propertyPath: TurnSpeed
-      value: 1
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 369452667601952728, guid: 81fd45f7340e118418816e541504ed19, type: 3}
+      propertyPath: conditionalVar
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6907531102301438881, guid: 81fd45f7340e118418816e541504ed19, type: 3}
       propertyPath: m_Name
