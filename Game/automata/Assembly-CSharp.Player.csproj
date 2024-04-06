@@ -82,11 +82,13 @@
     <Compile Include="Assets\Scripts\Machine\MachineConfiguration.cs" />
     <Compile Include="Assets\Scripts\HttpClient\Error.cs" />
     <Compile Include="Assets\Scripts\UEditor\SellerController_Editor.cs" />
+    <Compile Include="Assets\Scripts\MainScene\NewUser.cs" />
     <Compile Include="Assets\Scripts\RobotMenu\Menu.cs" />
     <Compile Include="Assets\Scripts\CameraMove.cs" />
     <Compile Include="Assets\Scripts\Machine\BaseMachine.cs" />
     <Compile Include="Assets\Scripts\ScenarioRenderer.cs" />
     <Compile Include="Assets\Scripts\RobotMenu\Option.cs" />
+    <Compile Include="Assets\Scripts\MainScene\Login.cs" />
     <Compile Include="Assets\Scripts\UEditor\OrgloxTeleporter_Editor.cs" />
     <Compile Include="Assets\Scripts\Seller\SellerController.cs" />
     <Compile Include="Assets\Scripts\AnimationDestroyer.cs" />
