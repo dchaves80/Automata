@@ -34,16 +34,16 @@ public class RobotBehavior : MonoBehaviour
     public Animator animator;
 
     //Control de Flujos
-    [Range(1,2)]
+    [Range(1, 2)]
     [DefaultValue(2)]
     public int conditionalVar;
-    [Range(0,999)]
+    [Range(-999, 999)]
     public int acc;
-    [Range(0,999)]
+    [Range(-999, 999)]
     public int bak;
-    
 
-    
+
+
 
     void Start()
     {
@@ -74,16 +74,18 @@ public class RobotBehavior : MonoBehaviour
 
         //if (animator.GetBool("wipe")) animator.SetBool("wipe", false);
 
-        
+
 
         if (locked == false)
         {
             CheckRightClick();
         }
 
+
         //PickOrder
         if (power == true)
         {
+            #region some fixes
 
             if (currentOrder.order == RobotOrder.orderType.nullOrder)
             {
@@ -91,7 +93,7 @@ public class RobotBehavior : MonoBehaviour
                 {
                     power = false;
                     orderIndex = 0;
-                    currentOrder = new RobotOrder() { order = RobotOrder.orderType.nullOrder, conditional = 0};
+                    currentOrder = new RobotOrder() { order = RobotOrder.orderType.nullOrder, conditional = 0 };
                 }
                 else
                 {
@@ -101,56 +103,223 @@ public class RobotBehavior : MonoBehaviour
                     }
                 }
             }
+            #endregion
 
-
-
-            
 
             bool exec = false;
-            
+
             switch (currentOrder.order)
             {
+                #region "Cheking Actions"
                 case RobotOrder.orderType.begin:
                     exec = false;
-                    if (currentOrder.conditional == 0){exec = true;}else{exec = (conditionalVar == currentOrder.conditional);}if (exec==true){begin();
-            } else { NextOrder(); };
-            break;
+                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }
+                    if (exec == true) { begin(); } else { NextOrder(); }; break;
                 case RobotOrder.orderType.forward:
                     exec = false;
-                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }if (exec == true) {move(); } else { NextOrder(); }; break;
+                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }
+                    if (exec == true) { move(); } else { NextOrder(); }; break;
                 case RobotOrder.orderType.backward:
                     exec = false;
-                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }if (exec == true) {move(); } else { NextOrder(); }; break;
+                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }
+                    if (exec == true) { move(); } else { NextOrder(); }; break;
                 case RobotOrder.orderType.turnleft:
                     exec = false;
-                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }if (exec == true) {turn(); } else { NextOrder(); }; break;
+                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }
+                    if (exec == true) { turn(); } else { NextOrder(); }; break;
                 case RobotOrder.orderType.turnright:
                     exec = false;
-                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }if (exec == true) {turn(); } else { NextOrder(); }; break;
+                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }
+                    if (exec == true) { turn(); } else { NextOrder(); }; break;
                 case RobotOrder.orderType.grab:
                     exec = false;
-                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }if (exec == true) {Grab(); } else { NextOrder(); }; break;
+                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }
+                    if (exec == true) { Grab(); } else { NextOrder(); }; break;
                 case RobotOrder.orderType.drop:
-                    exec = false; 
-                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }if (exec == true) {Drop(); } else { NextOrder(); }; break;
+                    exec = false;
+                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }
+                    if (exec == true) { Drop(); } else { NextOrder(); }; break;
                 case RobotOrder.orderType.waititem:
                     exec = false;
-                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }if (exec == true) {WaitItem(); } else { NextOrder(); }; break;
+                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }
+                    if (exec == true) { WaitItem(); } else { NextOrder(); }; break;
                 case RobotOrder.orderType.poweroff:
                     exec = false;
-                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }if (exec == true) {PowerOff(); } else { NextOrder(); }; break;
+                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }
+                    if (exec == true) { PowerOff(); } else { NextOrder(); }; break;
                 case RobotOrder.orderType.poweron: PowerOn(); break;
+
+
+                #endregion
+                #region "Checking Logic"
+                
+                case RobotOrder.orderType.logic_clacc:
+                    exec = false;
+                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }
+                    if (exec == true) { logic_clacc(); } else { NextOrder(); }; break;
+                
+                case RobotOrder.orderType.logic_clbak:
+                    exec = false;
+                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }
+                    if (exec == true) { logic_clbak(); } else { NextOrder(); }; break;
+
+                case RobotOrder.orderType.logic_mov:
+                    exec = false;
+                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }
+                    if (exec == true) { logic_mov(); } else { NextOrder(); }; break;
+          
+                case RobotOrder.orderType.logic_swp:
+                    exec = false;
+                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }
+                    if (exec == true) { logic_swp(); } else { NextOrder(); }; break;
+                
+                case RobotOrder.orderType.logic_add:
+                    exec = false;
+                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }
+                    if (exec == true) { logic_add(); } else { NextOrder(); }; break;
+                
+                case RobotOrder.orderType.logic_mul:
+                    exec = false;
+                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }
+                    if (exec == true) { logic_mul(); } else { NextOrder(); }; break;
+                
+                case RobotOrder.orderType.logic_sub:
+                    exec = false;
+                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }
+                    if (exec == true) { logic_sub(); } else { NextOrder(); }; break;
+          
+
+
+                case RobotOrder.orderType.logic_eq:
+                    exec = false;
+                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }
+                    if (exec == true) { logic_eq(); } else { NextOrder(); }; break;
+
+                case RobotOrder.orderType.logic_gt:
+                    exec = false;
+                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }
+                    if (exec == true) { logic_gt(); } else { NextOrder(); }; break;
+
+                case RobotOrder.orderType.logic_lt:
+                    exec = false;
+                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }
+                    if (exec == true) { logic_lt(); } else { NextOrder(); }; break;
+                case RobotOrder.orderType.logic_ne:
+                    exec = false;
+                    if (currentOrder.conditional == 0) { exec = true; } else { exec = (conditionalVar == currentOrder.conditional); }
+                    if (exec == true) { logic_ne(); } else { NextOrder(); }; break;
+
+
+
+                    #endregion
+
+
 
             }
         }
     }
 
-    private void NextOrder() 
+
+    #region conditional statements
+
+    private void logic_eq()
     {
+        conditionalVar = acc == bak?1:2;
+        NextOrder();
+    }
+
+    private void logic_gt()
+    {
+        conditionalVar = acc > bak ? 1 : 2;
+        NextOrder();
+    }
+
+    private void logic_lt()
+    {
+        conditionalVar = acc < bak ? 1 : 2;
+        NextOrder();
+    }
+
+    private void logic_ne()
+    {
+        conditionalVar = acc != bak ? 1 : 2;
+        NextOrder();
+    }
+
+    #endregion
+
+
+    #region arithmetic
+    private void logic_sub()
+    {
+        acc = acc-bak;
+        acc = acc > 999 ? 999 : acc;
+        acc = acc < -999 ? -999 : acc;
+        NextOrder();
+    }
+
+    private void logic_mul()
+    {
+        acc = bak * acc;
+        acc = acc > 999 ? 999 : acc;
+        acc = acc < -999 ? -999 : acc;
+
+        NextOrder();
+    }
+
+    private void logic_add()
+    {
+        acc = bak + acc;
+        acc = acc > 999 ? 999 : acc;
+        acc = acc < -999 ? -999 : acc;
+        NextOrder();
+    }
+    #endregion
+
+
+
+    #region Value transfer
+
+    private void logic_swp()
+    {
+        int a = acc;
+        int b = bak;
+        acc = b;
+        bak = a;
+        NextOrder();
+    }
+
+    private void logic_mov()
+    {
+        acc = currentOrder.parameter_value;
+        NextOrder();
+    }
+
+   
+
+    private void logic_clacc()
+    {
+        acc = 0;
+        NextOrder();
+    }
+
+    private void logic_clbak() 
+    {
+        bak = 0;
+        NextOrder();
+    }
+
+
+
+    #endregion
+
+    private void NextOrder()
+    {
+        orderProgression = 0;
         currentOrder = new RobotOrder();
         orderIndex++;
     }
-    
+
 
     private void CheckRightClick()
     {
@@ -177,34 +346,34 @@ public class RobotBehavior : MonoBehaviour
         MouseOver = false; ;
     }
 
-    private void PowerOff() 
+    private void PowerOff()
     {
-        
-       
+
+
         orderIndex = 0;
         currentOrder = new RobotOrder() { order = RobotOrder.orderType.nullOrder };
     }
 
-    private void PowerOn() 
+    private void PowerOn()
     {
         powerOff = false;
         power = true;
         orderIndex = 0;
         if (orders.Count > 0)
         {
-            currentOrder = new  RobotOrder(orders[0]);
+            currentOrder = new RobotOrder(orders[0]);
         }
-        else 
+        else
         {
             powerOff = false;
             power = false;
             orderIndex = 0;
-            currentOrder = new RobotOrder() { order = RobotOrder.orderType.nullOrder, conditional=0 };
+            currentOrder = new RobotOrder() { order = RobotOrder.orderType.nullOrder, conditional = 0 };
         }
 
     }
 
-    private void WaitItem() 
+    private void WaitItem()
     {
         int tileX = X;
         int tileY = Y;
@@ -216,11 +385,7 @@ public class RobotBehavior : MonoBehaviour
             case 4: tileX--; break;
         }
         Spatial frontTile = Scenario.Coordinates[tileY][tileX];
-        if (frontTile.item != null) 
-        {
-            currentOrder = new RobotOrder() { order = RobotOrder.orderType.nullOrder };
-            orderIndex++;
-        }
+        if (frontTile.item != null) NextOrder();
         if (powerOff == true)
         {
             powerOff = false;
@@ -230,7 +395,7 @@ public class RobotBehavior : MonoBehaviour
     }
     private void Grab()
     {
-        
+
 
         int tileX = X;
         int tileY = Y;
@@ -242,18 +407,17 @@ public class RobotBehavior : MonoBehaviour
             case 4: tileX--; break;
         }
         Spatial frontTile = Scenario.Coordinates[tileY][tileX];
-        if (frontTile.item != null && HoldItem==null) 
+        if (frontTile.item != null && HoldItem == null)
         {
             animator.SetTrigger("TriggerWipe");
             HoldItem = frontTile.item;
             frontTile.setFree();
             HoldItem.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -0.1f);
-            HoldItem.transform.rotation = new Quaternion(0f,0f, 0f, 0f);
+            HoldItem.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
             HoldItem.transform.parent = this.transform;
-            currentOrder = new RobotOrder() { order = RobotOrder.orderType.nullOrder };
+            currentOrder = new RobotOrder();
         }
-        currentOrder = new RobotOrder() { order = RobotOrder.orderType.nullOrder };
-        orderIndex++;
+        NextOrder();
         orderProgression = 0;
         if (powerOff == true)
         {
@@ -264,7 +428,7 @@ public class RobotBehavior : MonoBehaviour
 
     }
 
-    private void Drop() 
+    private void Drop()
     {
 
         int tileX = X;
@@ -277,7 +441,7 @@ public class RobotBehavior : MonoBehaviour
             case 4: tileX--; break;
         }
         Spatial frontTile = Scenario.Coordinates[tileY][tileX];
-        if (frontTile.item == null && HoldItem!=null)
+        if (frontTile.item == null && HoldItem != null)
         {
 
             if (frontTile.machine == null)
@@ -290,25 +454,26 @@ public class RobotBehavior : MonoBehaviour
                 frontTile.item.transform.parent = null;
                 frontTile.item.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
             }
-            else 
+            else
             {
                 BaseMachine bm = frontTile.machine.GetComponent<BaseMachine>();
-              
+
                 bool control = false;
 
-                if  (bm != null && bm.power==true && bm.ItemIn==null){
+                if (bm != null && bm.power == true && bm.ItemIn == null)
+                {
                     animator.SetTrigger("TriggerWipe");
                     //En el caso de que SI exista una maquina cuando suelta el item
                     bm.ItemIn = HoldItem;
                     bm.ItemIn.SetActive(false);
                     bm.ItemIn.transform.parent = bm.transform;
                     HoldItem = null;
-                    
-                    control=true;
+
+                    control = true;
                 }
 
                 SellerController seller = frontTile.machine.GetComponent<SellerController>();
-                if (control == false && seller!=null) 
+                if (control == false && seller != null)
                 {
                     animator.SetTrigger("TriggerWipe");
                     frontTile.setItem(HoldItem);
@@ -319,15 +484,14 @@ public class RobotBehavior : MonoBehaviour
 
                 }
 
-                
+
 
 
 
             }
 
         }
-        currentOrder = new RobotOrder() { order = RobotOrder.orderType.nullOrder };
-        orderIndex++;
+        NextOrder();
         orderProgression = 0;
         if (powerOff == true)
         {
@@ -342,11 +506,11 @@ public class RobotBehavior : MonoBehaviour
 
     private void begin()
     {
-    
+
         orderProgression = 0;
         orderIndex = 0;
         currentOrder = new RobotOrder(orders[0]);
-       
+
     }
 
     private void move()
@@ -402,8 +566,7 @@ public class RobotBehavior : MonoBehaviour
         if (orderProgression > (2 / MoveSpeed) - MoveSpeed || stopOrder == true)
         {
             orderProgression = 0;
-            orderIndex++;
-            currentOrder = new RobotOrder() { order = RobotOrder.orderType.nullOrder };
+            NextOrder();
             if (powerOff == true)
             {
                 powerOff = false;
@@ -425,15 +588,14 @@ public class RobotBehavior : MonoBehaviour
 
     }
 
- 
+
     private void turn()
     {
 
         if (orderProgression > (90 / TurnSpeed))
         {
             orderProgression = 0;
-            currentOrder = new RobotOrder() { order = RobotOrder.orderType.nullOrder };
-            orderIndex++;
+            NextOrder();
 
             //Arreglo y salto para que quede con el angulo justo
             switch (orientation)

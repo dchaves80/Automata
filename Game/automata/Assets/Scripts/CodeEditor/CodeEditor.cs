@@ -144,7 +144,7 @@ public class CodeEditor : MonoBehaviour
                         /*actions*/
                         case "MF": RB.orders.Add(new Assets.Scripts.RobotOrder(Assets.Scripts.RobotOrder.orderType.forward,ConditionalAttribute)); break;
                         case "MB": RB.orders.Add(new Assets.Scripts.RobotOrder(Assets.Scripts.RobotOrder.orderType.backward,ConditionalAttribute) ); break;
-                        case "TR": RB.orders.Add(new Assets.Scripts.RobotOrder(Assets.Scripts.RobotOrder.orderType.turnleft, ConditionalAttribute)); break;
+                        case "TR": RB.orders.Add(new Assets.Scripts.RobotOrder(Assets.Scripts.RobotOrder.orderType.turnright, ConditionalAttribute)); break;
                         case "TL": RB.orders.Add(new Assets.Scripts.RobotOrder(Assets.Scripts.RobotOrder.orderType.turnleft, ConditionalAttribute) { }); break;
                         case "GR": RB.orders.Add(new Assets.Scripts.RobotOrder(Assets.Scripts.RobotOrder.orderType.grab, ConditionalAttribute) { }); break;
                         case "DR": RB.orders.Add(new Assets.Scripts.RobotOrder(Assets.Scripts.RobotOrder.orderType.drop, ConditionalAttribute)); break;
