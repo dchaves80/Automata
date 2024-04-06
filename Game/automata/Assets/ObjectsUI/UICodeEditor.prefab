@@ -87,8 +87,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 425, y: -245}
-  m_SizeDelta: {x: 316.19995, y: 320.96}
+  m_AnchoredPosition: {x: 449.5, y: -287.3}
+  m_SizeDelta: {x: 373.1, y: 515.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2559363963644429836
 CanvasRenderer:
@@ -1079,7 +1079,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 314, y: -38.100006}
+  m_AnchoredPosition: {x: 687.4, y: -33.2}
   m_SizeDelta: {x: 92.399994, y: 21.899994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1501613262892700755
@@ -1729,8 +1729,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 108, y: -37}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 140.4, y: -227}
+  m_SizeDelta: {x: 271.8, y: 441.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7045846919732766743
 CanvasRenderer:
@@ -1760,12 +1760,21 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\n\u2593COMMANDS
-    HELP\u2593\n\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\n\n\u2510
-    MF (Move Forward)\n\u2510 MB (Move Backward)\n\u2510 TR (Turn Right)\n\u2510
-    TL (Turn Left)\n\u2510 GR (Grab object in front space)\n\u2510 DR (Drop Object
-    in front space)\n\u2510 WI (Wait for item in front space)\n\u2510 BG (Go to Begin
-    \"Make a loop\")\n\u2510 TO (Turn Off Robot)\n"
+  m_text: "\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\r\n\u2593COMMANDS
+    HELP\u2593\r\n\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\u2593\r\n\r\n\u2592ACTIONS\u2592\r\n\r\n\u2510
+    MF (Move Forward)\r\n\u2510 MB (Move Backward)\r\n\u2510 TR (Turn Right)\r\n\u2510
+    TL (Turn Left)\r\n\u2510 GR (Grab object in front space)\r\n\u2510 DR (Drop Object
+    in front space)\r\n\u2510 WI (Wait for item in front space)\r\n\u2510 BG (Go
+    to Begin \"Make a loop\")\r\n\u2510 TO (Turn Off Robot)\r\n\r\n\u2592LOGIC\u2592\r\n\r\n-*Clears*-\r\n\u03A6
+    CLACC (put acc to 0)\r\n\u03A6 CLBAK (put bak to 0)\r\n\r\n-*Transfer Values*-\r\n\u03A6
+    MOV (put[value] into acc  mov[value])\r\n\u03A6 SWP (swap values between Acc
+    and Bak)\r\n\r\n-*Aritmethics*-\r\n\u03A6 ADD (sum between Acc and Bak and stores
+    in Acc)\r\n\u03A6 MUL (multiplication between Acc and Bak and stores in Acc)\r\n\u03A6
+    SUB (substraction between Acc and Bak and stores in Acc)\r\n_*Conditionals*_\r\n\u03A6
+    EQ (check if Acc equals to Bak and set conditionalVar in robot)\r\n\u03A6 GT
+    (check if Acc is great than Bak and set conditionalVarin robot)\r\n\u03A6 LT
+    (check if Acc is less than Bak and set conditionalVar in robot)\r\n\u03A6 NE
+    (check if Acc is not equal with Bak and set conditionalVar in robot)\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -1792,8 +1801,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 13.7
-  m_fontSizeBase: 13.7
+  m_fontSize: 9.7
+  m_fontSizeBase: 9.7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1810,7 +1819,7 @@ MonoBehaviour:
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
+  m_overflowMode: 3
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
@@ -1995,7 +2004,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 313.9, y: -66.8}
+  m_AnchoredPosition: {x: 687.4, y: -60.8}
   m_SizeDelta: {x: 92.399994, y: 21.899994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8459283400644814466

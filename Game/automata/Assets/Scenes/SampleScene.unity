@@ -1628,11 +1628,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 369452667601952728, guid: 81fd45f7340e118418816e541504ed19, type: 3}
       propertyPath: MoveSpeed
-      value: 0.1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 369452667601952728, guid: 81fd45f7340e118418816e541504ed19, type: 3}
       propertyPath: TurnSpeed
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 369452667601952728, guid: 81fd45f7340e118418816e541504ed19, type: 3}
       propertyPath: conditionalVar
