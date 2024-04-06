@@ -13,6 +13,7 @@
 #Server Project
 /Server/AutomataServer/AutomataServer/[Bb]in/
 /Server/AutomataServer/AutomataServer/[Oo]bj/
+/Server/AutomataServer/.vs/
 
 #Server HttpToSql Project
 /Server/SQLToHttp/SQLToHttp/[Bb]in/
