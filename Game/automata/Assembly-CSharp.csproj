@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\MessageQueue\MessageQueue.cs" />
     <Compile Include="Assets\Scripts\Spatial.cs" />
     <Compile Include="Assets\Scripts\HttpClient\HttpActions.cs" />
+    <Compile Include="Assets\Scripts\GlobalVars.cs" />
     <Compile Include="Assets\Scripts\Machine\Furnace.cs" />
     <Compile Include="Assets\Scripts\RobotOrder.cs" />
     <Compile Include="Assets\StateMachine\MyState.cs" />

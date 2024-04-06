@@ -18,13 +18,17 @@ public class Menu : MonoBehaviour
     void Start()
     {
         wait.SetActive(false);
+        GlobalVars.global_LockMapScroll = true;
 
     }
 
     private void OnMouseExit()
     {
-        Destroy(this.gameObject);
+        GlobalVars.global_LockMapScroll = false;
         rb.menuOpened = false;
+        Destroy(this.gameObject);
+        
+        
     }
 
     public void SetRobot(RobotBehavior _rb) 

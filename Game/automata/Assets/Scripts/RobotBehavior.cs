@@ -28,7 +28,9 @@ public class RobotBehavior : MonoBehaviour
     public bool MouseOver = false;
     public bool locked = false;
     public string program;
+    [Min(0.01f)]
     public float MoveSpeed;
+    [Min(0.05f)]
     public float TurnSpeed;
     public GameObject HoldItem;
     public Animator animator;

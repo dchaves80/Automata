@@ -1622,22 +1622,6 @@ PrefabInstance:
       propertyPath: Y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 369452667601952728, guid: 81fd45f7340e118418816e541504ed19, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 369452667601952728, guid: 81fd45f7340e118418816e541504ed19, type: 3}
-      propertyPath: MoveSpeed
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 369452667601952728, guid: 81fd45f7340e118418816e541504ed19, type: 3}
-      propertyPath: TurnSpeed
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 369452667601952728, guid: 81fd45f7340e118418816e541504ed19, type: 3}
-      propertyPath: conditionalVar
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6907531102301438881, guid: 81fd45f7340e118418816e541504ed19, type: 3}
       propertyPath: m_Name
       value: Robot

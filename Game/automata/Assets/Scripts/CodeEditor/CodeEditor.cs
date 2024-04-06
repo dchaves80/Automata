@@ -30,6 +30,7 @@ public class CodeEditor : MonoBehaviour
         Robot.GetComponent<RobotBehavior>().locked = true;
         FieldCode.text = Robot.GetComponent<RobotBehavior>().program;
         Robot.GetComponent<RobotBehavior>().currentOrder = new Assets.Scripts.RobotOrder() { order = Assets.Scripts.RobotOrder.orderType.nullOrder };
+        GlobalVars.global_LockMapScroll = true;
     }
 
     private void Update()
@@ -191,6 +192,7 @@ public class CodeEditor : MonoBehaviour
     
         Robot.GetComponent<RobotBehavior>().locked = false;
         Robot.GetComponent<RobotBehavior>().powerOff = false;
+        GlobalVars.global_LockMapScroll = false;
         Destroy(this.gameObject);
     }
 

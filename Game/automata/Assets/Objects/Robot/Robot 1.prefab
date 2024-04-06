@@ -625,6 +625,7 @@ MonoBehaviour:
   currentOrder:
     order: 0
     conditional: 0
+    parameter_value: 0
   orderProgression: 0
   power: 0
   powerOff: 0
@@ -638,11 +639,13 @@ MonoBehaviour:
   MouseOver: 0
   locked: 0
   program: 
-  MoveSpeed: 0
-  TurnSpeed: 0
+  MoveSpeed: 0.01
+  TurnSpeed: 0.05
   HoldItem: {fileID: 0}
   animator: {fileID: 0}
-  conditionalVar: 0
+  conditionalVar: 2
+  acc: 0
+  bak: 0
 --- !u!61 &474175986884558025
 BoxCollider2D:
   m_ObjectHideFlags: 0
