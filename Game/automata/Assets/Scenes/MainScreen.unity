@@ -2641,7 +2641,7 @@ GameObject:
   - component: {fileID: 1591616026}
   - component: {fileID: 1591616025}
   m_Layer: 0
-  m_Name: WebClient
+  m_Name: WebClientLogin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

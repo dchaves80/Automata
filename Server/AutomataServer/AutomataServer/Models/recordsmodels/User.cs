@@ -7,5 +7,6 @@
         public string password { get; set; }
         public DateTime creationdate { get; set; }
         public bool banned { get; set; }
+        public string key { get; set; }
     }
 }

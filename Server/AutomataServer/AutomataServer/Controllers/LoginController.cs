@@ -19,16 +19,22 @@ namespace AutomataServer.Controllers
         [Route("Login")]
         public async Task<Users> EP_Login(string user, string password) 
         {
-           Users u = await Users.GetUserByUserName_Password(user,password);
+           Users u = await Users.User_Login(user,password);
             if (u.records != null && u.records.Count > 0 && u.records[0].banned == false)
             {
+                List<User> userlist = new List<User>();
+                userlist.Add(new User() { key = u.records[0].key });
 
-                return new Users() { error = new Error() { has = false, exception = null } };
+                Users resultUser = new Users() { error = new Error() { has = false, exception = null }, records = userlist };
+
+                return resultUser; 
             }
             else 
             {
                 return new Users() { error = new Error() { has=true, exception="login inconrrecto" } };
             }
         }
+
+
     }
 }
