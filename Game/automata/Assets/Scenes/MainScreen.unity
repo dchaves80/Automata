@@ -546,7 +546,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 0d60003c12e960d4caa587ba4fc47728, type: 2}
+    m_Font: {fileID: 12800000, guid: e40e10ae929178a43aa63a29eb229658, type: 2}
     m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 0
@@ -649,7 +649,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 269165986}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 880992254}
+        m_TargetAssemblyTypeName: Login, Assembly-CSharp
+        m_MethodName: ExitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &269165986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -910,7 +922,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 5dcf779b6ccdf3c40a1ec162e95a22f6, type: 2}
-    m_FontSize: 16
+    m_FontSize: 10
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1499,6 +1511,8 @@ GameObject:
   - component: {fileID: 880992251}
   - component: {fileID: 880992253}
   - component: {fileID: 880992252}
+  - component: {fileID: 880992255}
+  - component: {fileID: 880992254}
   m_Layer: 5
   m_Name: PanelLogin
   m_TagString: Untagged
@@ -1570,6 +1584,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 880992250}
   m_CullTransparentMesh: 1
+--- !u!114 &880992254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880992250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0404bdfb4ff84ba49a6c1122689d211d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  user: {fileID: 1936531579}
+  password: {fileID: 214542319}
+  message: {fileID: 326496271}
+  httpActions: {fileID: 1591616025}
+  MQ: {fileID: 880992255}
+  buttonEnter: {fileID: 1636940638}
+--- !u!114 &880992255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880992250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8387da55db6fd54488e9644decef9413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messages: []
 --- !u!1 &913644469
 GameObject:
   m_ObjectHideFlags: 0
@@ -2585,6 +2630,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1477275864}
   m_CullTransparentMesh: 1
+--- !u!1 &1591616024
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1591616026}
+  - component: {fileID: 1591616025}
+  m_Layer: 0
+  m_Name: WebClientLogin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1591616025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591616024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31d976ee8af69e54b808414a252d38c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  url: http://localhost:5207
+  controller: Login
+  action: Login
+--- !u!4 &1591616026
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591616024}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 372.33444, y: 331.6428, z: 3.1821496}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1636940636
 GameObject:
   m_ObjectHideFlags: 0
@@ -2667,7 +2759,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1636940639}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 880992254}
+        m_TargetAssemblyTypeName: Login, Assembly-CSharp
+        m_MethodName: SendLogin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1636940639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3665,7 +3769,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2007654861
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4281,6 +4385,7 @@ CanvasRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1591616026}
   - {fileID: 688531948}
   - {fileID: 1667268349}
   - {fileID: 862485882}

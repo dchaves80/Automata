@@ -6,7 +6,7 @@ namespace AutomataServer.Models.Services
 {
     public class LowMarket_Prices : BaseHttpToSqlResponse
     {
-        public List<recordsmodels.Price>? records { get; set; }
+        public List<recordsmodels.User>? records { get; set; }
 
         public static async Task<LowMarket_Prices>  GetAllPrices() 
         {
