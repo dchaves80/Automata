@@ -17,17 +17,19 @@ public class HttpActions : MonoBehaviour
     {
         UnityWebRequest request = UnityWebRequest.Get($"{url}/{controller}/{action}?user={username}&password={password}");
         request.SetRequestHeader("Content-Type", "application/json");
+        
         yield return request.SendWebRequest();
 
 
         if (request.isNetworkError || request.isHttpError)
         {
-            Debug.Log(request.error);
+            obj.GetComponent<MessageQueue>().messages.Add(new Message() { key = "login", boolData = false });
+            obj.GetComponent<MessageQueue>().messages.Add(new Message() { key = "loginMessage", stringData = "Incorrect user or password" });
         }
         else
         {
             response_Login p = JsonUtility.FromJson<response_Login>(request.downloadHandler.text);
-            string dataResult = "0";
+            
 
             if (p.error.has == false) 
             {
