@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\HttpClient\response_Price.cs" />
     <Compile Include="Assets\Scripts\OrgloxTeleporter\OrgloxController.cs" />
+    <Compile Include="Assets\Scripts\HttpClient\response_Login.cs" />
     <Compile Include="Assets\Scripts\MessageQueue\MessageQueue.cs" />
     <Compile Include="Assets\Scripts\Spatial.cs" />
     <Compile Include="Assets\Scripts\HttpClient\HttpActions.cs" />

@@ -10,6 +10,10 @@ public class Message
     
     public string key;
     
-    public string data;
+    public string stringData;
+    public bool boolData;
+    public int intData;
+    public long longData;
+    public float floatData;
     }
 

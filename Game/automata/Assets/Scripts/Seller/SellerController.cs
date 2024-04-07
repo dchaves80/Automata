@@ -72,7 +72,7 @@ public class SellerController : MonoBehaviour, ISeller
         
         if (MQ.messages[0].key == "sell") { 
         GameObject nreGO = Instantiate(SellUIPrefab);
-        nreGO.transform.Find("sprite").gameObject.GetComponent<TextMesh>().text = MQ.messages[0].data;
+                nreGO.transform.Find("sprite").gameObject.GetComponent<TextMesh>().text = MQ.messages[0].intData.ToString();
         nreGO.transform.position = transform.position + new Vector3(0f, 0f, -0.2f);
             }
             MQ.messages.Remove(MQ.messages[0]);
